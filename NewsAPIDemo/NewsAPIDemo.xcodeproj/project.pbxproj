@@ -373,7 +373,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = NewsAPIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.NewsAPIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -392,7 +392,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = NewsAPIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.NewsAPIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

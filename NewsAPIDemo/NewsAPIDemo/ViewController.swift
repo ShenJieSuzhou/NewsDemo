@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var dataArray = NSMutableArray()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupTableView()
+        requestNewsAPI();
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,10 +28,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     //请求新闻数据
     func requestNewsAPI() {
-        let key = "92d7759f604c067117f975624fdd5185"
-        let url = "http://v.juhe.cn/toutiao/index"
+        let url = "http://v.juhe.cn/toutiao/index?type=top&key=92d7759f604c067117f975624fdd5185"
         
-        
+        Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default)
+            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+                print("Progress: \(progress.fractionCompleted)")
+            }
+            .validate { request, response, data in
+                // Custom evaluation closure now includes data (allows you to parse data to dig out error messages if necessary)
+                return .success
+            }
+            .responseJSON { response in
+                debugPrint(response)
+        }
     }
     
     //解析新闻数据
@@ -56,7 +69,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        return dataArray.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

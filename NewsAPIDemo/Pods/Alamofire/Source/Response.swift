@@ -38,33 +38,13 @@ public struct DefaultDataResponse {
     /// The error encountered while executing or validating the request.
     public let error: Error?
 
-    /// The timeline of the complete lifecycle of the request.
-    public let timeline: Timeline
-
     var _metrics: AnyObject?
 
-    /// Creates a `DefaultDataResponse` instance from the specified parameters.
-    ///
-    /// - Parameters:
-    ///   - request:  The URL request sent to the server.
-    ///   - response: The server's response to the URL request.
-    ///   - data:     The data returned by the server.
-    ///   - error:    The error encountered while executing or validating the request.
-    ///   - timeline: The timeline of the complete lifecycle of the request. `Timeline()` by default.
-    ///   - metrics:  The task metrics containing the request / response statistics. `nil` by default.
-    public init(
-        request: URLRequest?,
-        response: HTTPURLResponse?,
-        data: Data?,
-        error: Error?,
-        timeline: Timeline = Timeline(),
-        metrics: AnyObject? = nil)
-    {
+    init(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) {
         self.request = request
         self.response = response
         self.data = data
         self.error = error
-        self.timeline = timeline
     }
 }
 
@@ -84,14 +64,8 @@ public struct DataResponse<Value> {
     /// The result of response serialization.
     public let result: Result<Value>
 
-    /// The timeline of the complete lifecycle of the request.
+    /// The timeline of the complete lifecycle of the `Request`.
     public let timeline: Timeline
-
-    /// Returns the associated value of the result if it is a success, `nil` otherwise.
-    public var value: Value? { return result.value }
-
-    /// Returns the associated error value if the result if it is a failure, `nil` otherwise.
-    public var error: Error? { return result.error }
 
     var _metrics: AnyObject?
 
@@ -133,7 +107,7 @@ extension DataResponse: CustomStringConvertible, CustomDebugStringConvertible {
     public var debugDescription: String {
         var output: [String] = []
 
-        output.append(request != nil ? "[Request]: \(request!.httpMethod ?? "GET") \(request!)" : "[Request]: nil")
+        output.append(request != nil ? "[Request]: \(request!)" : "[Request]: nil")
         output.append(response != nil ? "[Response]: \(response!)" : "[Response]: nil")
         output.append("[Data]: \(data?.count ?? 0) bytes")
         output.append("[Result]: \(result.debugDescription)")
@@ -165,31 +139,15 @@ public struct DefaultDownloadResponse {
     /// The error encountered while executing or validating the request.
     public let error: Error?
 
-    /// The timeline of the complete lifecycle of the request.
-    public let timeline: Timeline
-
     var _metrics: AnyObject?
 
-    /// Creates a `DefaultDownloadResponse` instance from the specified parameters.
-    ///
-    /// - Parameters:
-    ///   - request:        The URL request sent to the server.
-    ///   - response:       The server's response to the URL request.
-    ///   - temporaryURL:   The temporary destination URL of the data returned from the server.
-    ///   - destinationURL: The final destination URL of the data returned from the server if it was moved.
-    ///   - resumeData:     The resume data generated if the request was cancelled.
-    ///   - error:          The error encountered while executing or validating the request.
-    ///   - timeline:       The timeline of the complete lifecycle of the request. `Timeline()` by default.
-    ///   - metrics:        The task metrics containing the request / response statistics. `nil` by default.
-    public init(
+    init(
         request: URLRequest?,
         response: HTTPURLResponse?,
         temporaryURL: URL?,
         destinationURL: URL?,
         resumeData: Data?,
-        error: Error?,
-        timeline: Timeline = Timeline(),
-        metrics: AnyObject? = nil)
+        error: Error?)
     {
         self.request = request
         self.response = response
@@ -197,7 +155,6 @@ public struct DefaultDownloadResponse {
         self.destinationURL = destinationURL
         self.resumeData = resumeData
         self.error = error
-        self.timeline = timeline
     }
 }
 
@@ -225,12 +182,6 @@ public struct DownloadResponse<Value> {
 
     /// The timeline of the complete lifecycle of the request.
     public let timeline: Timeline
-
-    /// Returns the associated value of the result if it is a success, `nil` otherwise.
-    public var value: Value? { return result.value }
-
-    /// Returns the associated error value if the result if it is a failure, `nil` otherwise.
-    public var error: Error? { return result.error }
 
     var _metrics: AnyObject?
 
@@ -279,7 +230,7 @@ extension DownloadResponse: CustomStringConvertible, CustomDebugStringConvertibl
     public var debugDescription: String {
         var output: [String] = []
 
-        output.append(request != nil ? "[Request]: \(request!.httpMethod ?? "GET") \(request!)" : "[Request]: nil")
+        output.append(request != nil ? "[Request]: \(request!)" : "[Request]: nil")
         output.append(response != nil ? "[Response]: \(response!)" : "[Response]: nil")
         output.append("[TemporaryURL]: \(temporaryURL?.path ?? "nil")")
         output.append("[DestinationURL]: \(destinationURL?.path ?? "nil")")
