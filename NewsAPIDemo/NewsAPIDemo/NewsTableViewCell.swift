@@ -28,8 +28,20 @@ class NewsTableViewCell: UITableViewCell {
         addSubview(dateLabel)
         addSubview(thumbImage)
         
-//        titleLabel.snp.ma
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(superview!).offset(10)
+            make.left.equalTo(superview!).offset(20)
+        }
         
+        dateLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(superview!).offset(10)
+            make.left.equalTo(superview!).offset(20)
+        }
+        
+        thumbImage.snp.makeConstraints { (make) in
+            make.top.equalTo(superview!).offset(10)
+            make.right.equalTo(superview!).offset(20)
+        }
     }
 
     //懒加载，创建标题
