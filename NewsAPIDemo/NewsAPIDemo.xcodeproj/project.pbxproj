@@ -15,7 +15,6 @@
 		E5EEB8D6201F0A0400477B90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5EEB8D4201F0A0400477B90 /* LaunchScreen.storyboard */; };
 		E5EEB8DE201F111400477B90 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EEB8DD201F111400477B90 /* NewsTableViewCell.swift */; };
 		E5EEB8E0201F118500477B90 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EEB8DF201F118500477B90 /* News.swift */; };
-		E5F4A4AF2022C319000CC63A /* NewsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4A4AE2022C319000CC63A /* NewsInfo.swift */; };
 		E5F4A4B320230CC5000CC63A /* MyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F4A4B220230CC5000CC63A /* MyWebViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +30,6 @@
 		E5EEB8D7201F0A0400477B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5EEB8DD201F111400477B90 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		E5EEB8DF201F118500477B90 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		E5F4A4AE2022C319000CC63A /* NewsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInfo.swift; sourceTree = "<group>"; };
 		E5F4A4B220230CC5000CC63A /* MyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebViewController.swift; sourceTree = "<group>"; };
 		F20A882492F3A513CD9C6309 /* Pods-NewsAPIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAPIDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsAPIDemo/Pods-NewsAPIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +92,6 @@
 				E5EEB8D4201F0A0400477B90 /* LaunchScreen.storyboard */,
 				E5EEB8D7201F0A0400477B90 /* Info.plist */,
 				E5EEB8DF201F118500477B90 /* News.swift */,
-				E5F4A4AE2022C319000CC63A /* NewsInfo.swift */,
 				E5F4A4B220230CC5000CC63A /* MyWebViewController.swift */,
 			);
 			path = NewsAPIDemo;
@@ -235,7 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5F4A4AF2022C319000CC63A /* NewsInfo.swift in Sources */,
 				E5F4A4B320230CC5000CC63A /* MyWebViewController.swift in Sources */,
 				E5EEB8CE201F0A0400477B90 /* ViewController.swift in Sources */,
 				E5EEB8CC201F0A0400477B90 /* AppDelegate.swift in Sources */,
